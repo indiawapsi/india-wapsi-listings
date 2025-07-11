@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Navigation Bar */}
-      <nav className="w-full flex justify-end items-center py-6 px-8 gap-8 text-sm font-medium text-gray-800">
+      {/* <nav className="w-full flex justify-end items-center py-6 px-8 gap-8 text-sm font-medium text-gray-800">
         <div className="flex-1 text-left text-transparent select-none font-bold text-lg">IndiaWapsi Logo</div>
         <Link href="#" className="hover:underline">Home</Link>
         <Link href="#" className="hover:underline">Browse Ads</Link>
@@ -14,7 +14,7 @@ export default function Home() {
         <Link href="#" className="hover:underline">About</Link>
         <Link href="#" className="hover:underline">Contact</Link>
         <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-600">P</div>
-      </nav>
+      </nav> */}
 
       {/* Hero Section */}
       <section className="flex flex-col items-start max-w-3xl mt-16 px-8 ml-0 sm:ml-16">
