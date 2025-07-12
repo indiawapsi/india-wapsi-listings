@@ -5,17 +5,6 @@ import { FaHome, FaBriefcase, FaHeart, FaBook, FaDollarSign, FaBuilding } from "
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      {/* Navigation Bar */}
-      {/* <nav className="w-full flex justify-end items-center py-6 px-8 gap-8 text-sm font-medium text-gray-800">
-        <div className="flex-1 text-left text-transparent select-none font-bold text-lg">IndiaWapsi Logo</div>
-        <Link href="#" className="hover:underline">Home</Link>
-        <Link href="#" className="hover:underline">Browse Ads</Link>
-        <Link href="#" className="hover:underline">Post an Ad</Link>
-        <Link href="#" className="hover:underline">About</Link>
-        <Link href="#" className="hover:underline">Contact</Link>
-        <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-600">P</div>
-      </nav> */}
-
       {/* Hero Section */}
       <section className="flex flex-col items-start max-w-3xl mt-16 px-8 ml-0 sm:ml-16">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-2 text-left">
@@ -36,12 +25,24 @@ export default function Home() {
           <h2 className="text-2xl text-black sm:text-3xl font-bold text-center mb-2">Explore Classifieds</h2>
           <p className="text-center text-gray-600 mb-10">Find what you need in your journey back to India.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Link href="/property" className="hover:underline">
             <ClassifiedCard icon={<FaHome size={32} />} label="Property and Housing" light />
+            </Link>
+            <Link href="/employment" className="hover:underline">
             <ClassifiedCard icon={<FaBriefcase size={32} />} label="Employment" light />
+            </Link>
+            <Link href="/eldercare" className="hover:underline">
             <ClassifiedCard icon={<FaHeart size={32} />} label="Eldercare" light />
+            </Link>
+            <Link href="/education" className="hover:underline">
             <ClassifiedCard icon={<FaBook size={32} />} label="Education" light />
+            </Link>
+            <Link href="/finance" className="hover:underline">
             <ClassifiedCard icon={<FaDollarSign size={32} />} label="Finances" light />
+            </Link>
+            <Link href="/outsourcing" className="hover:underline">
             <ClassifiedCard icon={<FaBuilding size={32} />} label="Business Outsourcing" light />
+            </Link>
           </div>
         </div>
       </section>
