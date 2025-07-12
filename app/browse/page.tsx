@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { FaSearch, FaFilter, FaSort, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
+import { FaSearch, FaFilter, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
 import ads from "@/app/data/ads";
 
 type SortOption = "newest" | "oldest" | "title" | "category" | "location";
@@ -27,7 +27,7 @@ export default function BrowseAds() {
 
   // Filter and sort ads
   const filteredAndSortedAds = useMemo(() => {
-    let filtered = ads.filter(ad => {
+    const filtered = ads.filter(ad => {
       const matchesSearch = 
         ad.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         ad.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
