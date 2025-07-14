@@ -14,7 +14,7 @@ export default function Home() {
         <p className="text-gray-600 text-base mb-6 max-w-md text-left">
           that helps NRIs & Overseas Indians connect back or return to India.
         </p>
-        <Link href="#classifieds" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded mt-2 shadow text-left">
+        <Link href="/browse" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded mt-2 shadow text-left">
           Explore Classifieds
         </Link>
       </section>
@@ -53,7 +53,7 @@ export default function Home() {
           <h3 className="text-2xl font-bold text-gray-900 mb-1">Ready to get started?</h3>
           <span className="text-green-600 font-bold text-lg">Post your ad today.</span>
         </div>
-        <Link href="#" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded shadow">
+        <Link href="/post" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded shadow">
           Post an Ad
         </Link>
       </section>

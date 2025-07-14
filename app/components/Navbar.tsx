@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="space-x-4 text-sm text-black">
         <Link href="/" className="hover:underline">Home</Link>
         <Link href="/browse" className="hover:underline">Browse Ads</Link>
-        <Link href="/post-ad" className="hover:underline">Post an Ad</Link>
+        <Link href="/post" className="hover:underline">Post an Ad</Link>
         <Link href="/about" className="hover:underline">About</Link>
         <Link href="/contact" className="hover:underline">Contact</Link>
       </div>
