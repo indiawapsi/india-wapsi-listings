@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Hero Section */}
-      <section className="flex flex-col items-start max-w-3xl mt-16 px-8 ml-0 sm:ml-16">
+      {/* <section className="flex flex-col items-start max-w-3xl mt-16 px-8 ml-0 sm:ml-16">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-2 text-left">
           We are India’s first <br />
           <span className="text-green-600">concierge service<br />provider</span>
@@ -17,7 +17,37 @@ export default function Home() {
         <Link href="/browse" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded mt-2 shadow text-left">
           Explore Classifieds
         </Link>
-      </section>
+      </section> */}
+      <section className="relative bg-gradient-to-br from-green-50 via-white to-white py-20 px-8">
+  <div className="max-w-5xl mx-auto flex flex-col gap-4">
+    <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
+      We’re India’s First<br />
+      <span className="text-green-600">Concierge Service for NRIs</span>
+    </h1>
+    <p className="text-gray-600 text-lg max-w-xl">
+      Helping Indians abroad reconnect with their roots through property, finance, elder care, jobs & more.
+    </p>
+    <Link
+      href="/browse"
+      className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow w-fit"
+    >
+      Browse Classifieds
+    </Link>
+  </div>
+
+ 
+  {/* Trusted by badges */}
+<div className="mt-8 flex flex-wrap items-center gap-4">
+  <span className="text-gray-500 text-sm">Trusted by:</span>
+  <div className="flex flex-wrap gap-3 text-sm font-medium text-gray-700">
+    <span className="bg-gray-100 px-3 py-1 rounded-full">Entrepreneurs</span>
+    <span className="bg-gray-100 px-3 py-1 rounded-full">Tech Professionals</span>
+    <span className="bg-gray-100 px-3 py-1 rounded-full">Returning NRIs</span>
+  </div>
+</div>
+
+</section>
+
 
       {/* Explore Classifieds Section */}
       <section id="classifieds" className="w-full bg-gray-100 py-16 mt-20">
