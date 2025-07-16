@@ -19,10 +19,7 @@ export default function PostAdPage() {
     description: "",
     location: "",
     price: "",
-    contactName: "",
-    contactEmail: "",
-    contactPhone: "",
-    imageUrl: "",
+    imageurl: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -30,11 +27,25 @@ export default function PostAdPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // In a real app, send to backend here
-    console.log("Submitted Ad:", form);
-    setSubmitted(true);
+    try {
+      const response = await fetch('/api/ads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to post ad');
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   if (submitted) {
@@ -78,24 +89,12 @@ export default function PostAdPage() {
           <label className="block text-black font-medium mb-1">Price</label>
           <input name="price" value={form.price} onChange={handleChange} required className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
         </div>
-        <div className="mb-4">
-          <label className="block text-black font-medium mb-1">Contact Name</label>
-          <input name="contactName" value={form.contactName} onChange={handleChange} required className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-black font-medium mb-1">Contact Email</label>
-          <input name="contactEmail" type="email" value={form.contactEmail} onChange={handleChange} required className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-black font-medium mb-1">Contact Phone</label>
-          <input name="contactPhone" value={form.contactPhone} onChange={handleChange} required className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
-        </div>
         <div className="mb-6">
           <label className="block text-black font-medium mb-1">Image URL</label>
-          <input name="imageUrl" value={form.imageUrl} onChange={handleChange} className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
+          <input name="imageurl" value={form.imageurl} onChange={handleChange} className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
         </div>
         <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded">Post Ad</button>
       </form>
     </div>
   );
-} 
+}

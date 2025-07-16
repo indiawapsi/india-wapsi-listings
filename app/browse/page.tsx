@@ -1,29 +1,58 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { FaSearch, FaFilter, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
-import ads from "@/app/data/ads";
+
+type Ad = {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  location: string;
+  price: string;
+  imageurl: string;
+};
 
 type SortOption = "newest" | "oldest" | "title" | "category" | "location";
 
 export default function BrowseAds() {
+  const [ads, setAds] = useState<Ad[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("newest");
   const [showFilters, setShowFilters] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchAds() {
+      try {
+        const response = await fetch('/api/ads');
+        if (!response.ok) {
+          throw new Error('Failed to fetch ads');
+        }
+        const data = await response.json();
+        setAds(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchAds();
+  }, []);
 
   // Get unique categories and locations for filter dropdowns
   const categories = useMemo(() => {
     const uniqueCategories = [...new Set(ads.map(ad => ad.category))];
     return uniqueCategories.sort();
-  }, []);
+  }, [ads]);
 
   const locations = useMemo(() => {
     const uniqueLocations = [...new Set(ads.map(ad => ad.location))];
     return uniqueLocations.sort();
-  }, []);
+  }, [ads]);
 
   // Filter and sort ads
   const filteredAndSortedAds = useMemo(() => {
@@ -60,7 +89,7 @@ export default function BrowseAds() {
     }
 
     return filtered;
-  }, [searchTerm, selectedCategory, selectedLocation, sortBy]);
+  }, [ads, searchTerm, selectedCategory, selectedLocation, sortBy]);
 
   const clearFilters = () => {
     setSearchTerm("");
@@ -68,6 +97,14 @@ export default function BrowseAds() {
     setSelectedLocation("");
     setSortBy("newest");
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-black">Loading ads...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
