@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useAuth } from "@clerk/nextjs";
 
 const categories = [
   "Property and Housing",
@@ -13,6 +14,7 @@ const categories = [
 ];
 
 export default function PostAdPage() {
+  const { getToken } = useAuth();
   const [form, setForm] = useState({
     title: "",
     category: "",
@@ -20,6 +22,8 @@ export default function PostAdPage() {
     location: "",
     price: "",
     imageurl: "",
+    name: "",
+    email: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -30,10 +34,12 @@ export default function PostAdPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     try {
+      const token = await getToken();
       const response = await fetch('/api/ads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(form),
       });
@@ -64,6 +70,14 @@ export default function PostAdPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
       <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow p-8 max-w-lg w-full">
         <h1 className="text-2xl font-bold text-black mb-6">Post a New Ad</h1>
+        <div className="mb-4">
+          <label className="block text-black font-medium mb-1">Name</label>
+          <input name="name" value={form.name} onChange={handleChange} required className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-black font-medium mb-1">Email</label>
+          <input type="email" name="email" value={form.email} onChange={handleChange} required className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
+        </div>
         <div className="mb-4">
           <label className="block text-black font-medium mb-1">Title</label>
           <input name="title" value={form.title} onChange={handleChange} required className="w-full border border-gray-300 rounded px-3 py-2 text-black" />

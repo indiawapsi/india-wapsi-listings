@@ -2,8 +2,11 @@
 import Link from "next/link";
 import { FaHome, FaBriefcase, FaHeart, FaBook, FaDollarSign, FaBuilding } from "react-icons/fa";
 import Testimonials from "./components/Testimonials";
+import { useUser } from "@clerk/nextjs";
 
 export default function Home() {
+  const { isSignedIn } = useUser();
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Hero Section */}
@@ -84,9 +87,15 @@ export default function Home() {
           <h3 className="text-2xl font-bold text-gray-900 mb-1">Ready to get started?</h3>
           <span className="text-green-600 font-bold text-lg">Post your ad today.</span>
         </div>
-        <Link href="/post" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded shadow">
-          Post an Ad
-        </Link>
+        {isSignedIn ? (
+          <Link href="/post" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded shadow">
+            Post an Ad
+          </Link>
+        ) : (
+          <Link href="/sign-in" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded shadow">
+            Sign in to Post an Ad
+          </Link>
+        )}
       </section>
    <Testimonials />
 

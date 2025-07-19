@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { ModeratorEmail } from '@/emails/moderator-email';
 
-const resend = new Resend('re_HNUCCv4R_LqZUjBsiRTGQwPbPyLVExCsH');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -31,13 +31,15 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const { title, category, description, location, price, imageurl } = await request.json();
+  const { title, category, description, location, price, imageurl, name, email } = await request.json();
+  
   const { data, error } = await supabase
     .from('ads')
-    .insert([{ title, category, description, location, price, imageurl, status: 'pending' }])
+    .insert([{ title, category, description, location, price, imageurl, status: 'pending', user_id: email }])
     .select();
 
   if (error) {
+    console.error('Supabase error:', error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
@@ -48,12 +50,10 @@ export async function POST(request: NextRequest) {
         from: 'onboarding@resend.dev',
         to: 'indiawapsi4@gmail.com',
         subject: 'New Ad Submission',
-        react: ModeratorEmail({ ad: newAd }),
+        react: ModeratorEmail({ ad: newAd, userName: name, userEmail: email }),
       });
     } catch (emailError) {
       console.error('Email sending error:', emailError);
-      // You might want to handle this error, e.g., by logging it
-      // but not blocking the response to the user.
     }
   }
 
