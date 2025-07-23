@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useAuth, useUser } from "@clerk/nextjs";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const categories = [
   "Property and Housing",
@@ -27,6 +28,13 @@ export default function PostAdPage() {
     email: "",
   });
   const [submitted, setSubmitted] = useState(false);
+
+  // State variables for info card visibility
+  const [showGeneralTips, setShowGeneralTips] = useState(false);
+  const [showCategoryInfo, setShowCategoryInfo] = useState(false);
+  const [showDescriptionInfo, setShowDescriptionInfo] = useState(false);
+  const [showPriceInfo, setShowPriceInfo] = useState(false);
+  const [showImageURLInfo, setShowImageURLInfo] = useState(false);
 
   useEffect(() => {
     if (isLoaded && isSignedIn && user) {
@@ -65,6 +73,29 @@ export default function PostAdPage() {
     }
   }
 
+  // Function to toggle info card visibility
+  const toggleInfoCard = (cardName: string) => {
+    switch (cardName) {
+      case 'general':
+        setShowGeneralTips(!showGeneralTips);
+        break;
+      case 'category':
+        setShowCategoryInfo(!showCategoryInfo);
+        break;
+      case 'description':
+        setShowDescriptionInfo(!showDescriptionInfo);
+        break;
+      case 'price':
+        setShowPriceInfo(!showPriceInfo);
+        break;
+      case 'imageurl':
+        setShowImageURLInfo(!showImageURLInfo);
+        break;
+      default:
+        break;
+    }
+  };
+
   if (submitted) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
@@ -81,16 +112,25 @@ export default function PostAdPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-2 sm:p-6">
       <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow p-4 sm:p-8 max-w-lg w-full">
         <h1 className="text-xl sm:text-2xl font-bold text-black mb-6">Post a New Ad</h1>
+
         {/* Info Card: General */}
         <div className="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded">
-          <div className="text-blue-700 font-semibold mb-1">Tips for a Great Ad</div>
-          <ul className="list-disc list-inside text-blue-700 text-sm">
-            <li>Be clear and concise in your title and description.</li>
-            <li>Choose the most relevant category for your ad.</li>
-            <li>Include a realistic price.</li>
-            <li>Add an image URL for more visibility (optional but recommended).</li>
-          </ul>
+          <div className="flex items-center text-blue-700 font-semibold mb-1 cursor-pointer select-none" onClick={() => toggleInfoCard('general')}>
+            Tips for a Great Ad
+            <span className="ml-2">
+              {showGeneralTips ? <FaChevronUp size={14} /> : <FaChevronDown size={14} />}
+            </span>
+          </div>
+          {showGeneralTips && (
+            <ul className="list-disc list-inside text-blue-700 text-sm mt-2">
+              <li>Be clear and concise in your title and description.</li>
+              <li>Choose the most relevant category for your ad.</li>
+              <li>Include a realistic price.</li>
+              <li>Add an image URL for more visibility (optional but recommended).</li>
+            </ul>
+          )}
         </div>
+
         <div className="mb-4">
           <label className="block text-black font-medium mb-1">Name</label>
           <input
@@ -102,6 +142,7 @@ export default function PostAdPage() {
             // Name is always editable
           />
         </div>
+
         <div className="mb-4">
           <label className="block text-black font-medium mb-1">Email</label>
           <input
@@ -114,9 +155,20 @@ export default function PostAdPage() {
             disabled={!!(isLoaded && isSignedIn && user)}
           />
         </div>
+
         {/* Info Card: Category */}
-        <div className="mb-2 p-3 bg-green-50 border-l-4 border-green-400 rounded text-green-800 text-sm">
-          Select the category that best fits your ad. This helps users find your listing easily.
+        <div className="mb-2 p-3 bg-green-50 border-l-4 border-green-400 rounded">
+          <div className="flex items-center text-green-800 text-sm font-semibold cursor-pointer select-none" onClick={() => toggleInfoCard('category')}>
+            Category Info
+            <span className="ml-2">
+              {showCategoryInfo ? <FaChevronUp size={13} /> : <FaChevronDown size={13} />}
+            </span>
+          </div>
+          {showCategoryInfo && (
+            <div className="text-green-800 text-sm mt-1">
+              Select the category that best fits your ad. This helps users find your listing easily.
+            </div>
+          )}
         </div>
         <div className="mb-4">
           <label className="block text-black font-medium mb-1">Category</label>
@@ -127,34 +179,69 @@ export default function PostAdPage() {
             ))}
           </select>
         </div>
+
         {/* Info Card: Description */}
-        <div className="mb-2 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded text-yellow-800 text-sm">
-          Write a detailed description. Mention key features, benefits, or requirements.
+        <div className="mb-2 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+          <div className="flex items-center text-yellow-800 text-sm font-semibold cursor-pointer select-none" onClick={() => toggleInfoCard('description')}>
+            Description Info
+            <span className="ml-2">
+              {showDescriptionInfo ? <FaChevronUp size={13} /> : <FaChevronDown size={13} />}
+            </span>
+          </div>
+          {showDescriptionInfo && (
+            <div className="text-yellow-800 text-sm mt-1">
+              Write a detailed description. Mention key features, benefits, or requirements.
+            </div>
+          )}
         </div>
         <div className="mb-4">
           <label className="block text-black font-medium mb-1">Description</label>
           <textarea name="description" value={form.description} onChange={handleChange} required rows={3} className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
         </div>
+
         <div className="mb-4">
           <label className="block text-black font-medium mb-1">Location</label>
           <input name="location" value={form.location} onChange={handleChange} required className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
         </div>
+
         {/* Info Card: Price */}
-        <div className="mb-2 p-3 bg-purple-50 border-l-4 border-purple-400 rounded text-purple-800 text-sm">
-          Set a fair price. If your ad is for a service, you can mention "Negotiable" if needed.
+        <div className="mb-2 p-3 bg-purple-50 border-l-4 border-purple-400 rounded">
+          <div className="flex items-center text-purple-800 text-sm font-semibold cursor-pointer select-none" onClick={() => toggleInfoCard('price')}>
+            Price Info
+            <span className="ml-2">
+              {showPriceInfo ? <FaChevronUp size={13} /> : <FaChevronDown size={13} />}
+            </span>
+          </div>
+          {showPriceInfo && (
+            <div className="text-purple-800 text-sm mt-1">
+              Set a fair price. If your ad is for a service, you can mention "Negotiable" if needed.
+            </div>
+          )}
         </div>
         <div className="mb-4">
           <label className="block text-black font-medium mb-1">Price</label>
           <input name="price" value={form.price} onChange={handleChange} required className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
         </div>
+
         {/* Info Card: Image URL */}
-        <div className="mb-2 p-3 bg-pink-50 border-l-4 border-pink-400 rounded text-pink-800 text-sm">
-          Add a direct image URL (e.g., from Google Drive, Dropbox, or Imgur) to make your ad more attractive. This is optional but highly recommended.
+        <div className="mb-2 p-3 bg-pink-50 border-l-4 border-pink-400 rounded">
+          <div className="flex items-center text-pink-800 text-sm font-semibold cursor-pointer select-none" onClick={() => toggleInfoCard('imageurl')}>
+            Image URL Info
+            <span className="ml-2">
+              {showImageURLInfo ? <FaChevronUp size={13} /> : <FaChevronDown size={13} />}
+            </span>
+          </div>
+          {showImageURLInfo && (
+            <div className="text-pink-800 text-sm mt-1">
+              Add a direct image URL (e.g., from Google Drive, Dropbox, or Imgur) to make your ad more attractive. This is optional but highly recommended.
+            </div>
+          )}
         </div>
         <div className="mb-6">
           <label className="block text-black font-medium mb-1">Image URL</label>
           <input name="imageurl" value={form.imageurl} onChange={handleChange} className="w-full border border-gray-300 rounded px-3 py-2 text-black" />
         </div>
+
         <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded">Post Ad</button>
       </form>
     </div>
