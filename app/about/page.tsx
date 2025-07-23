@@ -27,7 +27,7 @@ export default function AboutPage() {
       <TeamMember
         name="Anik Biswas"
         title="Founder & CEO"
-        image="/anik.jpg"
+        image="/anik.png"
         linkedin="https://www.linkedin.com/in/anikbiswas"
         bio="Anik is an alumnus of UCLA Anderson and holds a degree in Computer Engineering from JIIT Noida. He brings 15+ years of leadership experience in tech companies like Aditya Birla, ShopClues, Dailyhunt, and more. He has also cofounded edtech ventures incubated by IIM Ahmedabad and UC Berkeley. Outside work, Anik enjoys writing and singing."
       />
@@ -35,22 +35,25 @@ export default function AboutPage() {
       {/* Team Members Section */}
       <h2 className="text-2xl font-semibold text-black mt-16 mb-6">Our Team</h2>
 
-      <div className="grid sm:grid-cols-2 gap-6">
-        <TeamMember
-          name="Kul Chandra Bhatt"
-          title="Founding Team Member – Engineering"
-          image="/kul.jpg"
-          linkedin="https://www.linkedin.com/in/kul-chandra-bhatt-b66182237/"
-          bio="Kul is a software developer from Kathmandu, Nepal, and a COMPEX Scholar with a B.Tech in Computer Science and Engineering from JIIT Noida. He brings strong full-stack and front-end development skills to the India Wapsi platform, having previously interned as a React Developer and Salesforce Engineer. He is passionate about building scalable, people-first products that solve real-world problems,especially those that help make returning to India easier for the global Indian diaspora."
-        />
-
-        <TeamMember
-          name="Agnibha Nanda"
-          title="Founding Team Member – Intern"
-          image="/agnibha.jpg"
-          linkedin="https://www.linkedin.com/in/agnibha-nanda-2b92931b9/"
-          bio="Agnibha is a CSE student at JIIT (Batch of ’28) and a passionate full-stack developer. As a Founding Engineer at India Wapsi, he focuses on UX, SEO, and customer journey mapping. With experience from Google Cloud's Arcade Program and the AI/ML Hub of JIIT, he brings a strong mix of technical depth and user empathy to everything he builds."
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="flex justify-center">
+          <TeamMember
+            name="Kul Chandra Bhatt"
+            title="Founding Team Member – Engineering"
+            image="/kul.jpg"
+            linkedin="https://www.linkedin.com/in/kul-chandra-bhatt-b66182237/"
+            bio="Kul is a software developer from Kathmandu, Nepal, and a COMPEX Scholar with a B.Tech in Computer Science and Engineering from JIIT Noida. He brings strong full-stack and front-end development skills to the India Wapsi platform, having previously interned as a React Developer and Salesforce Engineer. He is passionate about building scalable, people-first products that solve real-world problems,especially those that help make returning to India easier for the global Indian diaspora."
+          />
+        </div>
+        <div className="flex justify-center">
+          <TeamMember
+            name="Agnibha Nanda"
+            title="Founding Team Member – Intern"
+            image="/agnibha.jpg"
+            linkedin="https://www.linkedin.com/in/agnibha-nanda-2b92931b9/"
+            bio="Agnibha is a CSE student at JIIT (Batch of ’28) and a full-stack developer. As a Founding Engineer at India Wapsi, he focuses on UX, SEO, and building dynamic web solutions. he brings a strong mix of technical depth and user empathy to everything he builds."
+          />
+        </div>
       </div>
 
       {/* Contact CTA */}
@@ -81,25 +84,25 @@ function TeamMember({
   linkedin?: string;
 }) {
   return (
-    <div className="flex gap-6 items-start bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
-      <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-green-600">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start bg-white border border-gray-200 p-4 sm:p-6 rounded-xl shadow-sm w-full max-w-xl">
+      <div className="min-w-[96px] min-h-[96px] w-40 h-40 sm:w-56 sm:h-56 rounded-full overflow-hidden border-2 border-green-600 flex items-center justify-center bg-gray-100 mb-4 sm:mb-0 sm:mr-4">
         <Image
           src={image}
           alt={name}
-          width={96}
-          height={96}
+          width={128}
+          height={128}
           className="object-cover w-full h-full"
         />
       </div>
-      <div>
-        <h3 className="text-lg font-bold text-black">{name}</h3>
-        <p className="text-sm text-gray-600 mb-1">{title}</p>
-        <p className="text-sm text-gray-700">{bio}</p>
+      <div className="flex-1 text-center sm:text-left">
+        <h3 className="text-base sm:text-lg font-bold text-black">{name}</h3>
+        <p className="text-xs sm:text-sm text-gray-600 mb-1">{title}</p>
+        <p className="text-xs sm:text-sm text-gray-700">{bio}</p>
         {linkedin && (
           <Link
             href={linkedin}
             target="_blank"
-            className="inline-block mt-2 text-green-600 font-medium hover:underline text-sm"
+            className="inline-block mt-2 text-green-600 font-medium hover:underline text-xs sm:text-sm"
           >
             LinkedIn →
           </Link>

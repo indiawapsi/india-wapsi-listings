@@ -1,11 +1,12 @@
 
 import { supabase } from '@/utils/supabase';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function GET(request: NextRequest) {
+  const url = new URL(request.url);
+  const id = url.pathname.split('/').slice(-2, -1)[0];
   const { error } = await supabase
     .from('ads')
     .update({ status: 'approved' })

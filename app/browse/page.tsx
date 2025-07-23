@@ -108,15 +108,15 @@ export default function BrowseAds() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto p-6">
+      <div className="max-w-6xl mx-auto p-2 sm:p-6">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-black mb-2">Browse Ads</h1>
-          <p className="text-black">Find what you need in your journey back to India</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-black mb-2">Browse Ads</h1>
+          <p className="text-black text-sm sm:text-base">Find what you need in your journey back to India</p>
         </div>
 
         {/* Search and Filter Bar */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-3 sm:p-6 mb-6">
           {/* Search Bar */}
           <div className="relative mb-4">
             <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -125,12 +125,12 @@ export default function BrowseAds() {
               placeholder="Search ads by title, description, or location..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-black"
+              className="w-full pl-10 pr-2 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-black text-sm sm:text-base"
             />
           </div>
 
           {/* Filter Toggle */}
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-2 sm:gap-0">
             <button
               onClick={() => setShowFilters(!showFilters)}
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-black bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
@@ -142,7 +142,7 @@ export default function BrowseAds() {
             {(searchTerm || selectedCategory || selectedLocation) && (
               <button
                 onClick={clearFilters}
-                className="text-sm text-black hover:text-gray-700 underline"
+                className="text-sm text-black hover:text-gray-700 underline mt-2 sm:mt-0"
               >
                 Clear all filters
               </button>
@@ -151,7 +151,7 @@ export default function BrowseAds() {
 
           {/* Filters */}
           {showFilters && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-gray-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-4 border-t border-gray-200">
               {/* Category Filter */}
               <div>
                 <label className="block text-sm font-medium text-black mb-2">
@@ -160,7 +160,7 @@ export default function BrowseAds() {
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-black"
+                  className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-black text-sm sm:text-base"
                 >
                   <option value="">All Categories</option>
                   {categories.map(category => (
@@ -177,7 +177,7 @@ export default function BrowseAds() {
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-black"
+                  className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-black text-sm sm:text-base"
                 >
                   <option value="">All Locations</option>
                   {locations.map(location => (
@@ -194,7 +194,7 @@ export default function BrowseAds() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as SortOption)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-black"
+                  className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-black text-sm sm:text-base"
                 >
                   <option value="newest">Newest First</option>
                   <option value="oldest">Oldest First</option>
@@ -209,7 +209,7 @@ export default function BrowseAds() {
 
         {/* Results Summary */}
         <div className="mb-6">
-          <p className="text-black">
+          <p className="text-black text-sm sm:text-base">
             Showing {filteredAndSortedAds.length} of {ads.length} ads
             {(searchTerm || selectedCategory || selectedLocation) && (
               <span className="text-black">
@@ -221,16 +221,16 @@ export default function BrowseAds() {
 
         {/* Ads Grid */}
         {filteredAndSortedAds.length > 0 ? (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {filteredAndSortedAds.map((ad) => (
               <div key={ad.id} className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-3">
+                <div className="p-4 sm:p-6">
+                  <div className="flex flex-col gap-2 sm:flex-row items-start sm:items-center justify-between mb-3">
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-black mb-2 line-clamp-2">
+                      <h3 className="text-base sm:text-lg font-semibold text-black mb-2 line-clamp-2">
                         {ad.title}
                       </h3>
-                      <div className="flex items-center gap-4 text-sm text-black mb-3">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-black mb-3">
                         <div className="flex items-center gap-1">
                           <FaBriefcase className="text-green-500" />
                           <span>{ad.category}</span>
@@ -243,13 +243,13 @@ export default function BrowseAds() {
                     </div>
                   </div>
                   
-                  <p className="text-black text-sm mb-4 line-clamp-3">
+                  <p className="text-black text-xs sm:text-sm mb-4 line-clamp-3">
                     {ad.description}
                   </p>
                   
                   <Link 
                     href={`/ads/${ad.id}`}
-                    className="inline-flex items-center text-green-600 hover:text-green-700 font-medium text-sm transition-colors"
+                    className="inline-flex items-center text-green-600 hover:text-green-700 font-medium text-xs sm:text-sm transition-colors"
                   >
                     View Details
                     <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -267,13 +267,13 @@ export default function BrowseAds() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.47-.881-6.08-2.33" />
               </svg>
             </div>
-            <h3 className="text-lg font-medium text-black mb-2">No ads found</h3>
-            <p className="text-black mb-4">
+            <h3 className="text-base sm:text-lg font-medium text-black mb-2">No ads found</h3>
+            <p className="text-black mb-4 text-xs sm:text-base">
               Try adjusting your search terms or filters
             </p>
             <button
               onClick={clearFilters}
-              className="text-green-600 hover:text-green-700 font-medium"
+              className="text-green-600 hover:text-green-700 font-medium text-xs sm:text-base"
             >
               Clear all filters
             </button>

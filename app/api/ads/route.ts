@@ -3,6 +3,7 @@ import { supabase } from '@/utils/supabase';
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { ModeratorEmail } from '@/emails/moderator-email';
+import React from 'react';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -50,7 +51,7 @@ export async function POST(request: NextRequest) {
         from: 'onboarding@resend.dev',
         to: 'indiawapsi4@gmail.com',
         subject: 'New Ad Submission',
-        react: ModeratorEmail({ ad: newAd, userName: name, userEmail: email }),
+        react: React.createElement(ModeratorEmail, { ad: newAd, userName: name, userEmail: email }),
       });
     } catch (emailError) {
       console.error('Email sending error:', emailError);

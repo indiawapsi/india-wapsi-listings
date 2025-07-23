@@ -1,8 +1,9 @@
 import { supabase } from '@/app/data/supabaseClient';
 import { NextResponse } from 'next/server';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function GET(request: Request) {
+  const url = new URL(request.url);
+  const id = url.pathname.split('/').pop();
   const { data, error } = await supabase.from('ads').select('*').eq('id', id).single();
 
   if (error) {
@@ -12,8 +13,9 @@ export async function GET(request: Request, { params }: { params: { id: string }
   return NextResponse.json(data);
 }
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function PUT(request: Request) {
+  const url = new URL(request.url);
+  const id = url.pathname.split('/').pop();
   const { title, category, description, location, price, imageurl } = await request.json();
   const { data, error } = await supabase
     .from('ads')
@@ -28,8 +30,9 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   return NextResponse.json(data);
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function DELETE(request: Request) {
+  const url = new URL(request.url);
+  const id = url.pathname.split('/').pop();
   const { error } = await supabase.from('ads').delete().eq('id', id);
 
   if (error) {
