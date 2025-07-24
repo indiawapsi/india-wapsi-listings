@@ -25,13 +25,13 @@ export default function AboutPage() {
 
       {/* Founders Section */}
       <div className="flex justify-center">
-        <TeamMember
-          name="Anik Biswas"
-          title="Founder & CEO"
-          image="/anik.png"
-          linkedin="https://www.linkedin.com/in/anikbiswas"
-          bio="Anik is an alumnus of UCLA Anderson and holds a degree in Computer Engineering from JIIT Noida. He brings 15+ years of leadership experience in tech companies like Aditya Birla, ShopClues, Dailyhunt, and more. He has also cofounded edtech ventures incubated by IIM Ahmedabad and UC Berkeley. Outside work, Anik enjoys writing and singing."
-        />
+      <TeamMember
+        name="Anik Biswas"
+        title="Founder & CEO"
+        image="/anik.png"
+        linkedin="https://www.linkedin.com/in/anikbiswas"
+        bio="Anik is an alumnus of UCLA Anderson and holds a degree in Computer Engineering from JIIT Noida. He brings 15+ years of leadership experience in tech companies like Aditya Birla, ShopClues, Dailyhunt, and more. He has also cofounded edtech ventures incubated by IIM Ahmedabad and UC Berkeley. Outside work, Anik enjoys writing and singing."
+      />
       </div>
 
       {/* Team Members Section */}
