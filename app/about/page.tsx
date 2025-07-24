@@ -17,23 +17,25 @@ export default function AboutPage() {
 
       {/* Story Section */}
       <div className="bg-gray-50 p-6 rounded-lg shadow-sm mb-12">
-        <h2 className="text-2xl font-semibold text-black mb-4">Our Story</h2>
+        <h2 className="text-2xl font-semibold text-black mb-4 text-center">Our Story</h2>
         <p className="text-gray-700 text-base leading-relaxed">
           It’s the story of two friends who got separated due to work but never let go of their shared dream to return to India. Rupesh, our co-founder and CTO, is preparing for the next phase of life as a father and husband, striving to provide a high-quality lifestyle for his family back home. To bring this dream alive, he joined hands with his childhood friend Anik, the founder & CEO of this venture, who is arranging resources for NRIs and immigrants to return smoothly and spreading the message of homecoming to all who left India in search of a better life abroad.
         </p>
       </div>
 
       {/* Founders Section */}
-      <TeamMember
-        name="Anik Biswas"
-        title="Founder & CEO"
-        image="/anik.png"
-        linkedin="https://www.linkedin.com/in/anikbiswas"
-        bio="Anik is an alumnus of UCLA Anderson and holds a degree in Computer Engineering from JIIT Noida. He brings 15+ years of leadership experience in tech companies like Aditya Birla, ShopClues, Dailyhunt, and more. He has also cofounded edtech ventures incubated by IIM Ahmedabad and UC Berkeley. Outside work, Anik enjoys writing and singing."
-      />
+      <div className="flex justify-center">
+        <TeamMember
+          name="Anik Biswas"
+          title="Founder & CEO"
+          image="/anik.png"
+          linkedin="https://www.linkedin.com/in/anikbiswas"
+          bio="Anik is an alumnus of UCLA Anderson and holds a degree in Computer Engineering from JIIT Noida. He brings 15+ years of leadership experience in tech companies like Aditya Birla, ShopClues, Dailyhunt, and more. He has also cofounded edtech ventures incubated by IIM Ahmedabad and UC Berkeley. Outside work, Anik enjoys writing and singing."
+        />
+      </div>
 
       {/* Team Members Section */}
-      <h2 className="text-2xl font-semibold text-black mt-16 mb-6">Our Team</h2>
+      <h2 className="text-2xl font-semibold text-black mt-16 mb-6 text-center">Our Team</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="flex justify-center">
@@ -84,7 +86,7 @@ function TeamMember({
   linkedin?: string;
 }) {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start bg-white border border-gray-200 p-4 sm:p-6 rounded-xl shadow-sm w-full max-w-xl">
+    <div className="flex flex-col gap-6 items-center bg-white border border-gray-200 p-6 sm:p-10 rounded-xl shadow-sm w-full max-w-2xl">
       <div className="min-w-[96px] min-h-[96px] w-40 h-40 sm:w-56 sm:h-56 rounded-full overflow-hidden border-2 border-green-600 flex items-center justify-center bg-gray-100 mb-4 sm:mb-0 sm:mr-4">
         <Image
           src={image}
@@ -94,10 +96,10 @@ function TeamMember({
           className="object-cover w-full h-full"
         />
       </div>
-      <div className="flex-1 text-center sm:text-left">
-        <h3 className="text-base sm:text-lg font-bold text-black">{name}</h3>
-        <p className="text-xs sm:text-sm text-gray-600 mb-1">{title}</p>
-        <p className="text-xs sm:text-sm text-gray-700">{bio}</p>
+      <div className="flex-1 text-center">
+        <h3 className="text-base sm:text-lg font-bold text-black mb-2">{name}</h3>
+        <p className="text-xs sm:text-sm text-gray-600 mb-2">{title}</p>
+        <p className="text-xs sm:text-sm text-gray-700 whitespace-pre-line leading-relaxed mb-2">{bio}</p>
         {linkedin && (
           <Link
             href={linkedin}
