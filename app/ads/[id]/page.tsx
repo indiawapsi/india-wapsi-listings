@@ -135,12 +135,12 @@ export default function AdDetailsPage() {
               typeof user?.primaryEmailAddress?.emailAddress === 'string' &&
               MODERATOR_EMAILS.includes(user.primaryEmailAddress.emailAddress) && (
               <>
-                <Link href={`/ads/${ad.id}/edit`} className="inline-flex items-center text-blue-600 hover:text-blue-700">
-                  <FaEdit className="mr-1" /> Edit
-                </Link>
-                <button onClick={handleDelete} className="inline-flex items-center text-red-600 hover:text-red-700">
-                  <FaTrash className="mr-1" /> Delete
-                </button>
+            <Link href={`/ads/${ad.id}/edit`} className="inline-flex items-center text-blue-600 hover:text-blue-700">
+              <FaEdit className="mr-1" /> Edit
+            </Link>
+            <button onClick={handleDelete} className="inline-flex items-center text-red-600 hover:text-red-700">
+              <FaTrash className="mr-1" /> Delete
+            </button>
               </>
             )}
           </div>

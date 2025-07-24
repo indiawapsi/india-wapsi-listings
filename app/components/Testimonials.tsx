@@ -57,42 +57,42 @@ export default function Testimonials() {
           – Priya S., NRI in the US
         </div>
       </div>
-      {/* Card 3 */}
+       {/* Card 3 */}
       <div className="min-w-0 sm:min-w-[300px] sm:max-w-[350px] w-full bg-white border border-gray-200 rounded-xl p-4 sm:p-6 snap-start shadow-sm">
         <p className="text-gray-700 mb-4 text-sm sm:text-base">
-          Navigating school admissions from abroad was overwhelming. India Wapsi’s curated education resources helped me find the right international school for my kids with ease.
-        </p>
+    Navigating school admissions from abroad was overwhelming. India Wapsi’s curated education resources helped me find the right international school for my kids with ease.
+  </p>
         <div className="text-xs sm:text-sm font-semibold text-green-600">
-          – Arjun M., NRI in the UK
-        </div>
-      </div>
-      {/* Card 4 */}
+    – Arjun M., NRI in the UK
+  </div>
+</div>
+  {/* Card 4 */}
       <div className="min-w-0 sm:min-w-[300px] sm:max-w-[350px] w-full bg-white border border-gray-200 rounded-xl p-4 sm:p-6 snap-start shadow-sm">
         <p className="text-gray-700 mb-4 text-sm sm:text-base">
-          I was confused about NRI tax rules and investment options in India. India Wapsi made it easy to understand and connect with reliable financial advisors.
-        </p>
+    I was confused about NRI tax rules and investment options in India. India Wapsi made it easy to understand and connect with reliable financial advisors.
+  </p>
         <div className="text-xs sm:text-sm font-semibold text-green-600">
-          – Neha R., NRI in Canada
-        </div>
-      </div>
-      {/* Card 5 */}
+    – Neha R., NRI in Canada
+  </div>
+</div>
+  {/* Card 5 */}
       <div className="min-w-0 sm:min-w-[300px] sm:max-w-[350px] w-full bg-white border border-gray-200 rounded-xl p-4 sm:p-6 snap-start shadow-sm">
         <p className="text-gray-700 mb-4 text-sm sm:text-base">
-          Moving back to India meant restarting my career. Thanks to India Wapsi’s employment resources, I found a remote job before I even landed.
-        </p>
+    Moving back to India meant restarting my career. Thanks to India Wapsi’s employment resources, I found a remote job before I even landed.
+  </p>
         <div className="text-xs sm:text-sm font-semibold text-green-600">
-          – Rohit T., NRI returning from Australia
-        </div>
-      </div>
-      {/* Card 6 */}
+    – Rohit T., NRI returning from Australia
+  </div>
+</div>
+  {/* Card 6 */}
       <div className="min-w-0 sm:min-w-[300px] sm:max-w-[350px] w-full bg-white border border-gray-200 rounded-xl p-4 sm:p-6 snap-start shadow-sm">
         <p className="text-gray-700 mb-4 text-sm sm:text-base">
-          I wanted to outsource customer support to India but didn’t know where to start. India Wapsi connected me with vetted partners and simplified the whole process.
-        </p>
+    I wanted to outsource customer support to India but didn’t know where to start. India Wapsi connected me with vetted partners and simplified the whole process.
+  </p>
         <div className="text-xs sm:text-sm font-semibold text-green-600">
-          – Ayesha K., Entrepreneur in Dubai
-        </div>
-      </div>
+    – Ayesha K., Entrepreneur in Dubai
+  </div>
+</div>
     </div>
   </div>
 </section>

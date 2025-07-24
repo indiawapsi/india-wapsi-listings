@@ -27,19 +27,19 @@ export default function Home() {
         <div className="max-w-5xl mx-auto flex flex-col gap-4 items-center">
           <Image src="/IndiaWapsi_logo.png" alt="India Wapsi Logo" width={96} height={96} className="mb-4" />
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight text-center">
-            We’re India’s First<br />
-            <span className="text-green-600">Concierge Service for NRIs</span>
-          </h1>
+      We’re India’s First<br />
+      <span className="text-green-600">Concierge Service for NRIs</span>
+    </h1>
           <p className="text-gray-600 text-lg max-w-xl text-center">
-            Helping Indians abroad reconnect with their roots through property, finance, elder care, jobs & more.
-          </p>
-          <Link
-            href="/browse"
-            className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow w-fit"
-          >
-            Browse Classifieds
-          </Link>
-        </div>
+      Helping Indians abroad reconnect with their roots through property, finance, elder care, jobs & more.
+    </p>
+    <Link
+      href="/browse"
+      className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow w-fit"
+    >
+      Browse Classifieds
+    </Link>
+  </div>
 
  
   {/* Trusted by badges */}

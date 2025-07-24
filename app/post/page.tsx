@@ -131,6 +131,8 @@ export default function PostAdPage() {
           )}
         </div>
 
+
+
         <div className="mb-4">
           <label className="block text-black font-medium mb-1">Name</label>
           <input
@@ -157,6 +159,16 @@ export default function PostAdPage() {
         </div>
 
         {/* Info Card: Category */}
+        <div className="mb-4">
+          <label className="block text-black font-medium mb-1">Title</label>
+          <input
+            name="title"
+            value={form.title}
+            onChange={handleChange}
+            required
+            className="w-full border border-gray-300 rounded px-3 py-2 text-black"
+          />
+        </div>
         <div className="mb-2 p-3 bg-green-50 border-l-4 border-green-400 rounded">
           <div className="flex items-center text-green-800 text-sm font-semibold cursor-pointer select-none" onClick={() => toggleInfoCard('category')}>
             Category Info

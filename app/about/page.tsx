@@ -37,22 +37,22 @@ export default function AboutPage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="flex justify-center">
-          <TeamMember
-            name="Kul Chandra Bhatt"
-            title="Founding Team Member – Engineering"
-            image="/kul.jpg"
-            linkedin="https://www.linkedin.com/in/kul-chandra-bhatt-b66182237/"
-            bio="Kul is a software developer from Kathmandu, Nepal, and a COMPEX Scholar with a B.Tech in Computer Science and Engineering from JIIT Noida. He brings strong full-stack and front-end development skills to the India Wapsi platform, having previously interned as a React Developer and Salesforce Engineer. He is passionate about building scalable, people-first products that solve real-world problems,especially those that help make returning to India easier for the global Indian diaspora."
-          />
+        <TeamMember
+          name="Kul Chandra Bhatt"
+          title="Founding Team Member – Engineering"
+          image="/kul.jpg"
+          linkedin="https://www.linkedin.com/in/kul-chandra-bhatt-b66182237/"
+          bio="Kul is a software developer from Kathmandu, Nepal, and a COMPEX Scholar with a B.Tech in Computer Science and Engineering from JIIT Noida. He brings strong full-stack and front-end development skills to the India Wapsi platform, having previously interned as a React Developer and Salesforce Engineer. He is passionate about building scalable, people-first products that solve real-world problems,especially those that help make returning to India easier for the global Indian diaspora."
+        />
         </div>
         <div className="flex justify-center">
-          <TeamMember
-            name="Agnibha Nanda"
-            title="Founding Team Member – Intern"
-            image="/agnibha.jpg"
-            linkedin="https://www.linkedin.com/in/agnibha-nanda-2b92931b9/"
+        <TeamMember
+          name="Agnibha Nanda"
+          title="Founding Team Member – Intern"
+          image="/agnibha.jpg"
+          linkedin="https://www.linkedin.com/in/agnibha-nanda-2b92931b9/"
             bio="Agnibha is a CSE student at JIIT (Batch of ’28) and a full-stack developer. As a Founding Engineer at India Wapsi, he focuses on UX, SEO, and building dynamic web solutions. he brings a strong mix of technical depth and user empathy to everything he builds."
-          />
+        />
         </div>
       </div>
 
