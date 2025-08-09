@@ -21,8 +21,9 @@ export default function outsourcingPage() {
     async function fetchAds() {
       try {
         const response = await fetch('/api/ads?category=Business%20Outsourcing');
+        if (!response.ok) throw new Error('Failed to fetch ads');
         const data = await response.json();
-        setAds(data);
+        setAds(Array.isArray(data) ? data : []);
       } catch (e) {
         setAds([]);
       } finally {

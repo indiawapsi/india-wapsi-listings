@@ -21,8 +21,9 @@ export default function EducationPage() {
     async function fetchAds() {
       try {
         const response = await fetch('/api/ads?category=Education');
+        if (!response.ok) throw new Error('Failed to fetch ads');
         const data = await response.json();
-        setAds(data);
+        setAds(Array.isArray(data) ? data : []);
       } catch (e) {
         setAds([]);
       } finally {
