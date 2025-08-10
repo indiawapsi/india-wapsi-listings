@@ -24,6 +24,16 @@ export default function Home() {
         </Link>
       </section> */}
       <section className="relative bg-gradient-to-br from-green-50 via-white to-white py-20 px-8">
+        {/* Back Button */}
+        <div className="absolute left-4 top-4 z-20">
+          <a
+            href="https://indiawapsi.com"
+            className="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-lg shadow hover:bg-gray-50 text-gray-700 text-sm font-medium transition"
+            rel="noopener noreferrer"
+          >
+            ← Back to Main Website
+          </a>
+        </div>
         <div className="max-w-5xl mx-auto flex flex-col gap-4 items-center">
           <Image src="/IndiaWapsi_logo.png" alt="India Wapsi Logo" width={96} height={96} className="mb-4" />
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight text-center">
