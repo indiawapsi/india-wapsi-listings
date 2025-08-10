@@ -12,9 +12,14 @@ export default function Navbar() {
   return (
     <nav className="bg-white border-b shadow px-4 sm:px-6 py-4 flex justify-between items-center sticky top-0 z-50">
       <div className="flex items-center gap-3">
-        <Link href="/" className="flex items-center">
-          <span className="text-xl font-bold text-blue-600">India Wapsi</span>
-        </Link>
+        <a
+          href="https://indiawapsi.com"
+          className="flex items-center"
+          rel="noopener noreferrer"
+        >
+          <span className="text-xl font-bold" style={{ color: '#FF8800' }}>India</span>
+          <span className="text-xl font-bold ml-1 text-green-600">Wapsi</span>
+        </a>
       </div>
       {/* Desktop Nav */}
       <div className="hidden md:flex items-center space-x-4 text-sm text-black">

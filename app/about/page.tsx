@@ -11,15 +11,14 @@ export default function AboutPage() {
         The Pioneers in Helping Indians Return to India
       </h1>
 
-      <p className="text-center text-gray-700 text-base sm:text-lg max-w-3xl mx-auto mb-10">
-        India Wapsi is an initiative by two senior executives based out of India and Canada who dream of their homeland India over long-distance calls and childhood memories.
-      </p>
 
       {/* Story Section */}
       <div className="bg-gray-50 p-6 rounded-lg shadow-sm mb-12">
         <h2 className="text-2xl font-semibold text-black mb-4 text-center">Our Story</h2>
         <p className="text-gray-700 text-base leading-relaxed">
-        India Wapsi is an initiative by a senior executive based out of India, Anik, the founder & CEO of this venture who is arranging for the resources for NRIs and immigrants to return to India smoothly and would like to spread the message of homecoming to all those who have left India for a better life abroad.
+        India Wapsi is an initiative started by an individual based out of India who is so passionate about his roots that he dreams of a day when his family and friends would return to their homeland and work on their country first. 
+
+        As a result of this immense passion for India, our founder conceptualized the idea of India Wapsi to help returning NRIs and overseas Indians with facilities that would smoothen their journey back to India.  
         </p>
       </div>
 
