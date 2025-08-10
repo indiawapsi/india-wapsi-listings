@@ -19,7 +19,7 @@ export default function AboutPage() {
       <div className="bg-gray-50 p-6 rounded-lg shadow-sm mb-12">
         <h2 className="text-2xl font-semibold text-black mb-4 text-center">Our Story</h2>
         <p className="text-gray-700 text-base leading-relaxed">
-          It’s the story of two friends who got separated due to work but never let go of their shared dream to return to India. Rupesh, our co-founder and CTO, is preparing for the next phase of life as a father and husband, striving to provide a high-quality lifestyle for his family back home. To bring this dream alive, he joined hands with his childhood friend Anik, the founder & CEO of this venture, who is arranging resources for NRIs and immigrants to return smoothly and spreading the message of homecoming to all who left India in search of a better life abroad.
+        India Wapsi is an initiative by a senior executive based out of India, Anik, the founder & CEO of this venture who is arranging for the resources for NRIs and immigrants to return to India smoothly and would like to spread the message of homecoming to all those who have left India for a better life abroad.
         </p>
       </div>
 
