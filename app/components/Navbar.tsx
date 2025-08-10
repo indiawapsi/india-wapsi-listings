@@ -17,8 +17,8 @@ export default function Navbar() {
           className="flex items-center"
           rel="noopener noreferrer"
         >
-          <span className="text-xl font-bold" style={{ color: '#FF8800' }}>India</span>
-          <span className="text-xl font-bold ml-1 text-green-600">Wapsi</span>
+          <span className="text-xl font-bold" style={{ color: '#FF8800' }}>INDIA</span>
+          <span className="text-xl font-bold ml-1 text-green-600">WAPSI</span>
         </a>
       </div>
       {/* Desktop Nav */}

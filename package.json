@@ -12,6 +12,7 @@
     "@clerk/clerk-react": "^5.35.3",
     "@clerk/nextjs": "^6.25.4",
     "@supabase/supabase-js": "^2.51.0",
+    "@vercel/analytics": "^1.5.0",
     "next": "15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
