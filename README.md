@@ -1,4 +1,3 @@
-# India Wapsi
 
 A Next.js app for NRIs and Overseas Indians to connect back to India.
 
