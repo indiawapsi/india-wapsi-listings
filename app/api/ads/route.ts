@@ -1,5 +1,5 @@
 
-import { supabase } from '@/utils/supabase';
+import { supabase } from '@/utils/supabase-server';
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { ModeratorEmail } from '@/emails/moderator-email';
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   const { title, category, description, location, price, imageurl, name, email } = await request.json();
-  
+
   const { data, error } = await supabase
     .from('ads')
     .insert([{ title, category, description, location, price, imageurl, status: 'pending', user_id: email }])

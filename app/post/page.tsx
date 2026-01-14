@@ -113,6 +113,20 @@ export default function PostAdPage() {
       <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow p-4 sm:p-8 max-w-lg w-full">
         <h1 className="text-xl sm:text-2xl font-bold text-black mb-6">Post a New Ad</h1>
 
+        {/* Disclaimer */}
+        {/* Disclaimer */}
+        <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 rounded shadow-sm">
+          <p className="font-bold mb-2 flex items-center">
+            <span className="mr-2">⚠️</span> Safety Warning
+          </p>
+          <p className="text-sm leading-relaxed">
+            For your safety and privacy, please <strong>do not</strong> include personal contact details (such as your name, business name, phone numbers, email addresses, or physical addresses) directly in your ad description or title.
+          </p>
+          <p className="text-sm mt-2 leading-relaxed">
+            All initial communication is handled securely through our platform to prevent spam and scams. If a client is interested, we will facilitate the connection with you directly.
+          </p>
+        </div>
+
         {/* Info Card: General */}
         <div className="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded">
           <div className="flex items-center text-blue-700 font-semibold mb-1 cursor-pointer select-none" onClick={() => toggleInfoCard('general')}>
@@ -141,7 +155,7 @@ export default function PostAdPage() {
             onChange={handleChange}
             required
             className="w-full border border-gray-300 rounded px-3 py-2 text-black"
-            // Name is always editable
+          // Name is always editable
           />
         </div>
 

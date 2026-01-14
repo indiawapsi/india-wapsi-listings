@@ -1,5 +1,5 @@
 
-import { supabase } from '@/utils/supabase';
+import { supabase } from '@/utils/supabase-server';
 import { NextRequest } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
 
   // Revalidate the browse page to show the new ad
   revalidatePath('/browse');
-  
+
   // Redirect to a success page
   redirect('/moderator/success');
 }
